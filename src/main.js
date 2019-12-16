@@ -5,6 +5,13 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import VeeValidate from 'vee-validate'
+import moment from 'moment'
+
+// add these before Vue instantiation
+// Global filter to format dates with momentjs
+Vue.filter('timeAgo', date => moment(date).fromNow())
+Vue.filter('joined', date => moment(date).format('MMMM YYYY'))
+Vue.filter('dob', date => moment(date).format('MMMM Do YYYY'))
 
 Vue.config.productionTip = false
 Vue.use(VeeValidate)
